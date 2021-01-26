@@ -51,10 +51,11 @@ namespace EDA {
 					for (int i = 0; i < ptr1->tamanio; i++){
 						if (ptr1->llave[i] == value){
 							cout <<"el dato esta"<<endl;
-							return;
+							return true;
 						}
 					}
 					cout << "el dato no esta"<<endl;
+					return false;
 				}
 			}
 			void insert(const data_type& value) {
