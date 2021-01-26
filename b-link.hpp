@@ -166,7 +166,7 @@ namespace EDA {
 					ptr1->ptr[i + 1] = ptr2;
 				}
 				else{
-					Node* newInternal = new Node;
+					Node* nuevo_inter = new Node;
 					int virtualKey[MAX + 1];
 					Node* virtualPtr[MAX + 2];
 					for (int i = 0; i < MAX; i++){
@@ -185,26 +185,26 @@ namespace EDA {
 						virtualPtr[j] = virtualPtr[j - 1];
 					}
 					virtualPtr[i + 1] = ptr2;
-					newInternal->hoja = false;
+					nuevo_inter->hoja = false;
 					ptr1->tamanio = (MAX + 1) / 2;
-					newInternal->tamanio = MAX - (MAX + 1) / 2;
-					for (i = 0, j = ptr1->tamanio + 1; i < newInternal->tamanio; i++, j++){
-						newInternal->llave[i] = virtualKey[j];
+					nuevo_inter->tamanio = MAX - (MAX + 1) / 2;
+					for (i = 0, j = ptr1->tamanio + 1; i < nuevo_inter->tamanio; i++, j++){
+						nuevo_inter->llave[i] = virtualKey[j];
 					}
-					for (i = 0, j = ptr1->tamanio + 1; i < newInternal->tamanio + 1; i++, j++){
-						newInternal->ptr[i] = virtualPtr[j];
+					for (i = 0, j = ptr1->tamanio + 1; i < nuevo_inter->tamanio + 1; i++, j++){
+						nuevo_inter->ptr[i] = virtualPtr[j];
 					}
 					if (ptr1 == raiz){
-						Node* newRoot = new Node;
-						newRoot->llave[0] = ptr1->llave[ptr1->tamanio];
-						newRoot->ptr[0] = ptr1;
-						newRoot->ptr[1] = newInternal;
-						newRoot->hoja = false;
-						newRoot->tamanio = 1;
-						raiz = newRoot;
+						Node* nueva_raiz = new Node;
+						nueva_raiz->llave[0] = ptr1->llave[ptr1->tamanio];
+						nueva_raiz->ptr[0] = ptr1;
+						nueva_raiz->ptr[1] = nuevo_inter;
+						nueva_raiz->hoja = false;
+						nueva_raiz->tamanio = 1;
+						raiz = nueva_raiz;
 					}
 					else{
-						insertar2(ptr1->llave[ptr1->tamanio], find_p(raiz, ptr1), newInternal);
+						insertar2(ptr1->llave[ptr1->tamanio], find_p(raiz, ptr1), nuevo_inter);
 					}
 				}
 			}
