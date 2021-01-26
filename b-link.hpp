@@ -38,7 +38,7 @@ namespace EDA {
 					Node* ptr1 = raiz;
 					while (ptr1->hoja == false){
 						for (int i = 0; i < ptr1->tamanio; i++){
-							if (x < ptr1->llave[i]){
+							if (value < ptr1->llave[i]){
 								ptr1 = ptr1->ptr[i];
 								break;
 							}
@@ -71,7 +71,7 @@ namespace EDA {
 					while (ptr1->hoja == false){
 						padre = ptr1;
 						for (int i = 0; i < ptr1->tamanio; i++){
-							if (x < ptr1->llave[i]){
+							if (value < ptr1->llave[i]){
 								ptr1 = ptr1->ptr[i];
 								break;
 							}
@@ -83,7 +83,7 @@ namespace EDA {
 					}
 					if (ptr1->tamanio < MAX){
 						int i = 0;
-						while (x > ptr1->llave[i] && i < ptr1->tamanio) i++;
+						while (value> ptr1->llave[i] && i < ptr1->tamanio) i++;
 						for (int j = ptr1->tamanio; j > i; j--){
 							ptr1->llave[j] = ptr1->llave[j - 1];
 						}
